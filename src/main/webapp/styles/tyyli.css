@@ -1,0 +1,35 @@
+
+body {
+	text-align: center;
+	max-width: 600px;
+	margin: 0 auto;
+	font-family: sans-serif;
+}
+.external-css {
+	background-color: #90EE90;
+	padding: 10px;
+}
+.time_until {
+	text-align: center;
+	color: red;
+	font-size: 5em;
+}
+
+.shopping-list {
+	text-align: center;
+	color: red;
+	font-size: 5em;
+}
+.table {
+	text-align: center;
+	color: black;
+	font-size: 1em;
+}
+.kuvituskuva {
+	width: 80%;
+    max-width: 400px;
+    display: block;
+    border:solid 5px gray;
+    margin: auto;
+}
+	
