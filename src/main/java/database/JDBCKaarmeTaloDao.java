@@ -102,6 +102,26 @@ public class JDBCKaarmeTaloDao implements KaarmeTaloDao {
 		yhteys.close();
 		return true;
 	}
+	
+	@Override
+	public void updateSnake(KaarmeTalo updatedItem) throws SQLException, ClassNotFoundException {
+	    final String URL = "jdbc:sqlite:.\\snakedb.sqlite";
+	    Class.forName("org.sqlite.JDBC");
+	    Connection yhteys = DriverManager.getConnection(URL);
+
+	    String nimi = updatedItem.getNimi();
+	    int ika = updatedItem.getIka();
+	    int paino = updatedItem.getPaino();
+
+	    PreparedStatement paivita = yhteys.prepareStatement("UPDATE Kaarme SET ika = ?, paino = ? WHERE nimi = ?");
+	    paivita.setInt(1, ika);
+	    paivita.setInt(2, paino);
+	    paivita.setString(3, nimi);
+	    paivita.executeUpdate();
+
+	    paivita.close();
+	    yhteys.close();
+	}
 
 	@Override
 	public boolean removeSnake(KaarmeTalo item) throws SQLException, ClassNotFoundException {
@@ -114,7 +134,7 @@ public class JDBCKaarmeTaloDao implements KaarmeTaloDao {
 		PreparedStatement poista = yhteys.prepareStatement("DELETE FROM Kaarme WHERE nimi LIKE ?;");
 		
 		poista.setString(1, nimi);
-		int rivit = poista.executeUpdate();
+		poista.executeUpdate();
 
 		poista.close();
 		yhteys.close();

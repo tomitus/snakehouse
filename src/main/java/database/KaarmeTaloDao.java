@@ -14,4 +14,9 @@ public interface KaarmeTaloDao {
     public boolean addSnake(KaarmeTalo newItem) throws SQLException, ClassNotFoundException;
 
     public boolean removeSnake(KaarmeTalo item) throws SQLException, ClassNotFoundException;
+
+	void updateSnake(KaarmeTalo updatedItem) throws SQLException, ClassNotFoundException;
+    
+    
+    
 }
